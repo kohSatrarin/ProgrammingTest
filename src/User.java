@@ -4,16 +4,6 @@ public class User implements IUser {
     private String u_password = null;
     private int u_type = 0;
 
-    User(){
-        throw new RuntimeException("Input name, password and type of User");
-    }
-
-    User(String name, String password, int type) {
-        setName(name);
-        setPassword(password);
-        setType(type);
-    }
-
 
     @Override
     public String getName() {
@@ -48,7 +38,7 @@ public class User implements IUser {
 
     @Override
     public boolean isPasswordCorrect(String password) {
-        if(!password.equals("null") || !password.equals("") || this.u_password == password) {
+        if(!password.equals("null") && !password.equals("") && this.u_password.equals(password)) {
             return true;
         }
         else{
