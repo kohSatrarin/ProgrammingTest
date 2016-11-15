@@ -52,8 +52,8 @@ public class User implements IUser {
             return true;
         }
         else{
-            //throw new RuntimeException("Wrong input.");
-            return false;
+            throw new RuntimeException("Wrong password.");
+            //return false;
 
         }
         //return false;
