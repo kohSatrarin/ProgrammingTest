@@ -1,8 +1,8 @@
 public class User implements IUser {
 
-    private String u_name;
-    private String u_password;
-    private int u_type;
+    private String u_name = null;
+    private String u_password = null;
+    private int u_type = 0;
     //private String userPattern = "^[A-Za-z][A-Za-z0-9]{7,}$";
     //private String passPattern = "^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])[A-Za-z0-9]{12,}$";
 
@@ -15,14 +15,17 @@ public class User implements IUser {
     @Override
     public String setName(String name) {
         if(!name.equals("null") || !name.equals(""))
-            u_name = name;
+            this.u_name = name;
+        else {
+            throw new RuntimeException("Wrong input.");
+        }
         return null;
     }
 
     @Override
     public String setPassword(String password) {
         if (isPasswordCorrect(password)){
-            u_password = password;
+            this.u_password = password;
             return password;
         }
         return null;
@@ -38,8 +41,10 @@ public class User implements IUser {
         if(!password.equals("null") || !password.equals("")) {
             return true;
         }
-        else
-            return false;
+        else{
+            throw new RuntimeException("Wrong input.");
+        }
+        //return false;
     }
 
     @Override
