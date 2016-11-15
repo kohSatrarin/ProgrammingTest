@@ -48,7 +48,7 @@ public class User implements IUser {
 
     @Override
     public boolean isPasswordCorrect(String password) {
-        if(!password.equals("null") || !password.equals("")) {
+        if(!password.equals("null") || !password.equals("") || this.u_password == password) {
             return true;
         }
         else{
