@@ -51,4 +51,13 @@ public class User implements IUser {
     public int getType() {
         return u_type;
     }
+
+    public int setType(int type) {
+        if (type!=1 || type!=2){
+            throw new RuntimeException("Wrong input.");
+        }
+        else u_type = type;
+        return type;
+    }
+
 }
