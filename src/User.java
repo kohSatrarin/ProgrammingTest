@@ -4,6 +4,12 @@ public class User implements IUser {
     private String u_password = null;
     private int u_type = 0;
 
+    public User(int type, String name, String password)
+    {
+        setType(type);
+        setName(name);
+        setPassword(password);
+    }
 
     @Override
     public String getName() {
@@ -18,8 +24,8 @@ public class User implements IUser {
         else{
             throw new RuntimeException("Wrong input.");
         }
-        //return this.u_name;
-        throw new RuntimeException();
+        return this.u_name;
+        //throw new RuntimeException();
     }
 
     @Override
@@ -28,7 +34,10 @@ public class User implements IUser {
             this.u_password = password;
             return password;
         }
-        throw new RuntimeException();
+        else{
+            throw new RuntimeException("Wrong input");
+        }
+
     }
 
     @Override
@@ -51,17 +60,12 @@ public class User implements IUser {
 
     @Override
     public int getType() {
-        if (this.u_type!=1 || this.u_type!=2){
-            throw new RuntimeException("Wrong input.");
-        }
-        else {
             return this.u_type;
-        }
 
     }
 
     public int setType(int type) {
-        if (type!=1 || type!=2){
+        if (type!=IUser.USER_STUDENT || type!=IUser.USER_TEACHER){
             throw new RuntimeException("Wrong input.");
         }
         else {
