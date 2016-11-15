@@ -61,11 +61,11 @@ public class User implements IUser {
 
     @Override
     public int getType() {
-        if (u_type!=1 || u_type!=2){
+        if (this.u_type!=1 || this.u_type!=2){
             throw new RuntimeException("Wrong input.");
         }
         else {
-            return u_type;
+            return this.u_type;
         }
 
     }
