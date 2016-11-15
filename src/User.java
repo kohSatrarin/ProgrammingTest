@@ -27,7 +27,8 @@ public class User implements IUser {
         else {
             throw new RuntimeException("Wrong input.");
         }
-        return this.u_name;
+        //return this.u_name;
+        throw new RuntimeException();
     }
 
     @Override
@@ -36,7 +37,7 @@ public class User implements IUser {
             this.u_password = password;
             return password;
         }
-        return null;
+        throw new RuntimeException();
     }
 
     @Override
@@ -50,14 +51,22 @@ public class User implements IUser {
             return true;
         }
         else{
-            throw new RuntimeException("Wrong input.");
+            //throw new RuntimeException("Wrong input.");
+            return false;
+
         }
         //return false;
     }
 
     @Override
     public int getType() {
-        return u_type;
+        if (u_type!=1 || u_type!=2){
+            throw new RuntimeException("Wrong input.");
+        }
+        else {
+            return u_type;
+        }
+
     }
 
     public int setType(int type) {
